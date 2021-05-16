@@ -2,6 +2,7 @@
 
 namespace DefaultNamespace
 {
+    
     public class LevelDescriptionCollection : ScriptableObject
     {
         [SerializeField] private LevelDescription[] _levelDescriptions;
