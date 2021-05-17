@@ -12,6 +12,7 @@ namespace DefaultNamespace.UI
         [SerializeField] private StarsBox _starsBox;
         [SerializeField] private Image _backgroundImage;
         [SerializeField] private Image _avatarImage;
+        [SerializeField] private Button _closeButton;
 
         public event Action<int> PlayClicked;
         public event Action CloseClicked;
@@ -19,6 +20,11 @@ namespace DefaultNamespace.UI
         private int _id;
         private LevelDescription _levelDescription;
         private LevelStatistics _levelStatistics;
+
+        private void Start()
+        {
+            _closeButton.onClick.AddListener(Hide);
+        }
 
         public void UpdateInformation(int id, LevelDescription levelDescription, LevelStatistics levelStatistics)
         {
