@@ -39,6 +39,9 @@ namespace DefaultNamespace.UI
 
         public void OnPointerDown(PointerEventData eventData)
         {
+            if (eventData.dragging)
+                return;
+            
             Clicked?.Invoke(_id);
         }
     }

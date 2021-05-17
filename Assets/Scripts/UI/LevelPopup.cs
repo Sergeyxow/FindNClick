@@ -29,6 +29,16 @@ namespace DefaultNamespace.UI
             UpdateView();
         }
 
+        public void Show()
+        {
+            gameObject.SetActive(true);
+        }
+
+        public void Hide()
+        {
+            gameObject.SetActive(false);
+        }
+
         public void UpdateView()
         {
             _titleTextBox.text = _levelDescription.Name;
