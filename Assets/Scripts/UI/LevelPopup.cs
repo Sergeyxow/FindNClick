@@ -10,6 +10,7 @@ namespace DefaultNamespace.UI
     {
         [SerializeField] private TextMeshProUGUI _titleTextBox;
         [SerializeField] private StarsBox _starsBox;
+        [SerializeField] private Leaderboard _leaderboard;
         [SerializeField] private Image _backgroundImage;
         [SerializeField] private Image _avatarImage;
         [SerializeField] private Button _closeButton;
@@ -51,6 +52,7 @@ namespace DefaultNamespace.UI
             _backgroundImage.sprite = _levelDescription.BackgroundSprite;
             _avatarImage.sprite = _levelDescription.AvatarSprite;
             _starsBox.Show(_levelStatistics.stars);
+            _leaderboard.UpdateView(_levelStatistics.leaderboard);
         }
     }
 }

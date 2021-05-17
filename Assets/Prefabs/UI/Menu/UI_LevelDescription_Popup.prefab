@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 0
+    m_Top: 25
     m_Bottom: 0
   m_ChildAlignment: 1
   m_Spacing: 0
@@ -519,6 +519,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1568388029}
+  - component: {fileID: 8626219719964143779}
   m_Layer: 5
   m_Name: Leaderboard
   m_TagString: Untagged
@@ -546,6 +547,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8626219719964143779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568388028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69691e287d8d4638bfe90c233bd0908c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerScoresParent: {fileID: 179923227}
+  _playerScorePrefab: {fileID: 663597880821400085, guid: 846a9c167a6da6549b4cc2fa90d04306,
+    type: 3}
+  _maxFields: 7
 --- !u!1 &1673098852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,6 +1161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _titleTextBox: {fileID: 449507623}
   _starsBox: {fileID: 5279154110271139040}
+  _leaderboard: {fileID: 8626219719964143779}
   _backgroundImage: {fileID: 2697013372411311581}
   _avatarImage: {fileID: 2697013370883535626}
   _closeButton: {fileID: 545801740}
@@ -1266,6 +1284,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b778a8c8d35556458e91a1f8bbe60c8, type: 3}
+--- !u!224 &7831090383630352261 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8852828308250596144, guid: 3b778a8c8d35556458e91a1f8bbe60c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1618497916430658741}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5279154110271139040 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6860492922065649749, guid: 3b778a8c8d35556458e91a1f8bbe60c8,
@@ -1278,12 +1302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07a1049414290947a2e9037a54854ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &7831090383630352261 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8852828308250596144, guid: 3b778a8c8d35556458e91a1f8bbe60c8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1618497916430658741}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2815731732264112190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1409,9 +1427,9 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2815731732264112190}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2697013372411311581 stripped
+--- !u!114 &2697013370883535626 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 179803449576662499, guid: 4fff070d7a4714a49a12a85089d952d8,
+  m_CorrespondingSourceObject: {fileID: 179803447902085940, guid: 4fff070d7a4714a49a12a85089d952d8,
     type: 3}
   m_PrefabInstance: {fileID: 2815731732264112190}
   m_PrefabAsset: {fileID: 0}
@@ -1421,9 +1439,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2697013370883535626 stripped
+--- !u!114 &2697013372411311581 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 179803447902085940, guid: 4fff070d7a4714a49a12a85089d952d8,
+  m_CorrespondingSourceObject: {fileID: 179803449576662499, guid: 4fff070d7a4714a49a12a85089d952d8,
     type: 3}
   m_PrefabInstance: {fileID: 2815731732264112190}
   m_PrefabAsset: {fileID: 0}
