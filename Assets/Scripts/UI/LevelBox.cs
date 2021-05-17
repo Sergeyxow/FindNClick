@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace DefaultNamespace.UI
 {
-    public class LevelBox : MonoBehaviour, IPointerDownHandler
+    public class LevelBox : MonoBehaviour, IPointerClickHandler
     {
         [SerializeField] private TextMeshProUGUI _titleTextBox;
         [SerializeField] private StarsBox _starsBox;
@@ -37,7 +37,7 @@ namespace DefaultNamespace.UI
             _starsBox.Show(_levelStatistics.stars);
         }
 
-        public void OnPointerDown(PointerEventData eventData)
+        public void OnPointerClick(PointerEventData eventData)
         {
             if (eventData.dragging)
                 return;
