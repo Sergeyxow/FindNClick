@@ -6,8 +6,8 @@ namespace DefaultNamespace.Common
     [Serializable]
     public class UserStatistics
     {
-        public int Id;
-        public string Name;
-        public float Time;
+        public int id;
+        public string name;
+        public float time;
     }
 }

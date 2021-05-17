@@ -10,7 +10,7 @@ namespace DefaultNamespace
     [CreateAssetMenu(fileName = "LevelStatisticsCollection", menuName = "LevelStatisticsCollection")]
     public class LevelStatisticsCollection : ScriptableObject
     {
-        public LevelStatistics[] LevelStatisticsArray;
+        public LevelStatisticsArray LevelStatisticsArray;
 
         [SerializeField] private string _path = "/Data/Levels.json";
 
@@ -19,13 +19,18 @@ namespace DefaultNamespace
         {
             try
             {
-                LevelStatistics[] array = JsonUtility.FromJson<List<LevelStatistics>>(File.ReadAllText(Application.dataPath + _path)).ToArray();
-                LevelStatisticsArray = array;
+                LevelStatisticsArray = JsonUtility.FromJson<LevelStatisticsArray>(File.ReadAllText(Application.dataPath + _path));
             }
             catch (Exception e)
             {
                 Debug.LogError(e);
             }
         }
+    }
+
+    [Serializable]
+    public class LevelStatisticsArray
+    {
+        public LevelStatistics[] stats;
     }
 }

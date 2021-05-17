@@ -5,7 +5,7 @@ namespace DefaultNamespace.Common
     [Serializable]
     public class LevelStatistics
     {
-        public int Stars;
-        public UserStatistics[] Leaderboard;
+        public int stars;
+        public UserStatistics[] leaderboard;
     }
 }
