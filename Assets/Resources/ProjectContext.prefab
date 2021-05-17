@@ -44,6 +44,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameData: {fileID: 11400000, guid: d1d6c9c98ba09c1439fd7faef922d107, type: 2}
+  _levelCollection: {fileID: 11400000, guid: defba31646f3cb54ab9d683d2e7d74b7, type: 2}
+  _levelDescriptionCollection: {fileID: 11400000, guid: e053d42db95e2824b94438b581d5fcc6,
+    type: 2}
+  _levelStatisticsCollection: {fileID: 11400000, guid: 7c9f8ffbd13325a4fb49cfd16a5c2041,
+    type: 2}
 --- !u!1 &6933876858000851813
 GameObject:
   m_ObjectHideFlags: 0

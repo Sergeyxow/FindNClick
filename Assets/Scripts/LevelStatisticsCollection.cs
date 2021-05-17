@@ -11,8 +11,19 @@ namespace DefaultNamespace
     public class LevelStatisticsCollection : ScriptableObject
     {
         public LevelStatisticsArray LevelStatisticsArray;
-
         [SerializeField] private string _path = "/Data/Levels.json";
+        
+        public bool TryGetStatistics(int id, out LevelStatistics outLevelStatistics)
+        {
+            if (id < LevelStatisticsArray.stats.Length)
+            {
+                outLevelStatistics = LevelStatisticsArray.stats[id];
+                return true;
+            }
+
+            outLevelStatistics = null;
+            return false;
+        }
 
         [Button()]
         private void LoadFromJson()
@@ -26,11 +37,5 @@ namespace DefaultNamespace
                 Debug.LogError(e);
             }
         }
-    }
-
-    [Serializable]
-    public class LevelStatisticsArray
-    {
-        public LevelStatistics[] stats;
     }
 }

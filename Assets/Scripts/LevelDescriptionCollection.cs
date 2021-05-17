@@ -3,6 +3,7 @@
 namespace DefaultNamespace
 {
     
+    [CreateAssetMenu(fileName = "LevelDescriptionCollection", menuName = "LevelDescriptionCollection")]
     public class LevelDescriptionCollection : ScriptableObject
     {
         [SerializeField] private LevelDescription[] _levelDescriptions;
