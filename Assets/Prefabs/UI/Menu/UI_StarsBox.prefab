@@ -59,8 +59,8 @@ MonoBehaviour:
   - {fileID: 8852828309411158088}
   - {fileID: 8852828308672127008}
   - {fileID: 8852828309317558675}
-  _enabledColor: {r: 0.72156864, g: 0.7686275, b: 0.8117648, a: 0}
-  _disabledColor: {r: 0.39607847, g: 0.34509805, b: 0.9607844, a: 0}
+  _enabledColor: {r: 0.39607844, g: 0.34509805, b: 0.9607843, a: 1}
+  _disabledColor: {r: 0.72156864, g: 0.7686275, b: 0.8117648, a: 1}
 --- !u!1 &8852828308654651909
 GameObject:
   m_ObjectHideFlags: 0
