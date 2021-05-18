@@ -24,7 +24,5 @@ namespace DefaultNamespace.UI
                 Instantiate(_playerScorePrefab, _playerScoresParent).Init(userStatisticsArray[i]);
             }
         }
-        
-        
     }
 }
