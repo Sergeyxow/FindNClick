@@ -49,6 +49,8 @@ MonoBehaviour:
     type: 2}
   _levelStatisticsCollection: {fileID: 11400000, guid: 7c9f8ffbd13325a4fb49cfd16a5c2041,
     type: 2}
+  _levelGameplayDataCollection: {fileID: 11400000, guid: 49f6fbcec1d4f0e4499b7f796c06c578,
+    type: 2}
 --- !u!1 &6933876858000851813
 GameObject:
   m_ObjectHideFlags: 0
