@@ -5,10 +5,11 @@ namespace Modules.Health
 {
     public class HealthComponent : MonoBehaviour
     {
+        public float MaxHealth;
+        
         public UnityEvent<float> HealthChanged;
         public UnityEvent HealthIsOut;
 
-        [SerializeField] private float _maxHealth;
         private float _health;
         
         public float Health
@@ -16,7 +17,7 @@ namespace Modules.Health
             get => _health;
             set
             {
-                _health = Mathf.Clamp(value, 0f, _maxHealth);
+                _health = Mathf.Clamp(value, 0f, MaxHealth);
                 HealthChanged?.Invoke(_health);
                 if (_health <= 0f)
                     HealthIsOut?.Invoke();
