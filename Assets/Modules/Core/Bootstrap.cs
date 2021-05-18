@@ -23,17 +23,8 @@ namespace Modules.Core
             _sessionData.Initialized = true;
 
             UnityEngine.Input.multiTouchEnabled = false;
-
-            int sceneIndex = _sessionData.LoadSceneIndex;
             
-            if (sceneIndex != 0)
-            {
-                SceneManager.LoadScene(sceneIndex, _loadSceneMode);
-            }
-            else
-            {
-                SceneManager.LoadScene(1);
-            }
+            SceneManager.LoadScene(1);
         }
     }
 }

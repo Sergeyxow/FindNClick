@@ -27,7 +27,6 @@ namespace Modules.Core
         {
             if (!_sessionData.Initialized)
             {
-                _sessionData.LoadSceneIndex = SceneManager.GetActiveScene().buildIndex;
                 SceneManager.LoadScene(0, LoadSceneMode.Single);
             }
         }
