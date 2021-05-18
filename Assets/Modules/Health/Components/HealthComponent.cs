@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Modules.Health
@@ -22,6 +23,11 @@ namespace Modules.Health
                 if (_health <= 0f)
                     HealthIsOut?.Invoke();
             }
+        }
+
+        private void Start()
+        {
+            Health = MaxHealth;
         }
 
         public void IncreaseHealth(float health)

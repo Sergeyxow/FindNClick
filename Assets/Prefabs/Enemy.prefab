@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 5069073383488938194}
-  _healthComponent: {fileID: 5069073384117384205}
+  HealthComponent: {fileID: 5069073384117384205}
 --- !u!61 &5069073384117384307
 BoxCollider2D:
   m_ObjectHideFlags: 0

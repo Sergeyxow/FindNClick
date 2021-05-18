@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Modules.UI
@@ -5,10 +6,17 @@ namespace Modules.UI
     public class Screen : MonoBehaviour
     {
         public Widget[] Widgets;
+        [SerializeField] private bool _autoShow;
 
         public bool IsShown => _isShown;
         private bool _isShown;
-        
+
+        private void Start()
+        {
+            if (_autoShow)
+                Show();
+        }
+
         public virtual void Show()
         {
             if (_isShown)

@@ -6,12 +6,12 @@ namespace DefaultNamespace
     public class EnemyActor : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer _spriteRenderer;
-        [SerializeField] private HealthComponent _healthComponent;
+        public HealthComponent HealthComponent;
         
         public void Init(Sprite sprite, float maxHealth)
         {
             _spriteRenderer.sprite = sprite;
-            _healthComponent.MaxHealth = maxHealth;
+            HealthComponent.MaxHealth = maxHealth;
         }
     }
 }
