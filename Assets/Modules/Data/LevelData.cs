@@ -5,7 +5,7 @@ namespace Modules.Data
 {
     public class LevelData : MonoBehaviour
     {
-        public Sprite BackgroundImage;
+        public SpriteRenderer BackgroundImage;
         public EnemyActor EnemyActor;
     }
 }
