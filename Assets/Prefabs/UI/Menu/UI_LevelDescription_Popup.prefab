@@ -1164,6 +1164,7 @@ MonoBehaviour:
   _leaderboard: {fileID: 8626219719964143779}
   _backgroundImage: {fileID: 2697013372411311581}
   _avatarImage: {fileID: 2697013370883535626}
+  _playButton: {fileID: 1739413799}
   _closeButton: {fileID: 545801740}
 --- !u!1001 &1618497916430658741
 PrefabInstance:

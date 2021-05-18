@@ -13,6 +13,8 @@ namespace DefaultNamespace.UI
         [SerializeField] private Leaderboard _leaderboard;
         [SerializeField] private Image _backgroundImage;
         [SerializeField] private Image _avatarImage;
+
+        [SerializeField] private Button _playButton;
         [SerializeField] private Button _closeButton;
 
         public event Action<int> PlayClicked;
@@ -24,7 +26,19 @@ namespace DefaultNamespace.UI
 
         private void Start()
         {
-            _closeButton.onClick.AddListener(Hide);
+            _playButton.onClick.AddListener(OnPlayButtonClicked);
+            _closeButton.onClick.AddListener(OnCloseButtonClicked);
+        }
+
+        private void OnCloseButtonClicked()
+        {
+            Hide();
+            CloseClicked?.Invoke();
+        }
+
+        private void OnPlayButtonClicked()
+        {
+            PlayClicked?.Invoke(_id);
         }
 
         public void UpdateInformation(int id, LevelDescription levelDescription, LevelStatistics levelStatistics)

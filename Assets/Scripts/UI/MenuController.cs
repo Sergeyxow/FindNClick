@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using DefaultNamespace;
 using DefaultNamespace.Common;
 using DefaultNamespace.UI;
 using Modules.Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 public class MenuController : MonoBehaviour
@@ -15,22 +17,51 @@ public class MenuController : MonoBehaviour
     private LevelCollection _levelCollection;
     private LevelDescriptionCollection _levelDescriptionCollection;
     private LevelStatisticsCollection _levelStatisticsCollection;
+    private SessionData _sessionData;
 
     private Dictionary<int, (LevelDescription, LevelStatistics)> _dictionary = new Dictionary<int, (LevelDescription, LevelStatistics)>();
-    
+
     [Inject]
     private void Construct(
         LevelCollection levelCollection, 
         LevelDescriptionCollection levelDescriptionCollection, 
-        LevelStatisticsCollection levelStatisticsCollection)
+        LevelStatisticsCollection levelStatisticsCollection,
+        SessionData sessionData)
     {
+        _sessionData = sessionData;
         _levelStatisticsCollection = levelStatisticsCollection;
         _levelDescriptionCollection = levelDescriptionCollection;
         _levelCollection = levelCollection;
     }
-    
+
+    private void Awake()
+    {
+        if (!_sessionData.Initialized)
+        {
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
+            return;
+        }
+    }
+
 
     private void Start()
+    {
+        ShowListOfLevels();
+        _levelPopup.PlayClicked += LevelPopupOnPlayClicked;
+    }
+
+    private void OnDestroy()
+    {
+        _levelPopup.PlayClicked -= LevelPopupOnPlayClicked;
+    }
+
+    private void LevelPopupOnPlayClicked(int levelId)
+    {
+        _sessionData.LevelId = levelId;
+        SceneManager.LoadScene(2);
+    }
+
+    private void ShowListOfLevels()
     {
         foreach (int levelId in _levelCollection.Levels)
         {
@@ -39,7 +70,7 @@ public class MenuController : MonoBehaviour
                 if (_levelStatisticsCollection.TryGetStatistics(levelId, out LevelStatistics statistics))
                 {
                     _dictionary.Add(levelId, (description, statistics));
-                    
+
                     InstantiateLevelBox(levelId, description, statistics);
                 }
             }
