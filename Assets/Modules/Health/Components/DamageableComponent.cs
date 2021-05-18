@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Modules.Utils.Components
+namespace Modules.Health
 {
     public class DamageableComponent : MonoBehaviour
     {

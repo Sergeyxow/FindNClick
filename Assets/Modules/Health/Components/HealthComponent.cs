@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace Modules.Utils.Components
+namespace Modules.Health
 {
     public class HealthComponent : MonoBehaviour
     {
@@ -23,9 +23,14 @@ namespace Modules.Utils.Components
             }
         }
 
-        public void ChangeHealth(float health)
+        public void IncreaseHealth(float health)
         {
             Health += health;
+        }
+        
+        public void DecreaseHealth(float health)
+        {
+            Health -= health;
         }
     }
 }
