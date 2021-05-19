@@ -4,11 +4,12 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class ClickDamager : MonoBehaviour
+    public class ClickAttacker : MonoBehaviour
     {
         [SerializeField] private float _damage = 1f;
-        private Camera _camera;
         
+        private Camera _camera;
+        private AttackBehavior _attackBehavior;
 
         private void Start()
         {
@@ -26,10 +27,11 @@ namespace DefaultNamespace
                 {
                     if (hit.collider.gameObject.TryGetComponent(out DamageableComponent damageable))
                     {
-                        damageable.GetDamage(_damage);
+                        _attackBehavior.Attack(_damage, damageable);
                     }
                 }
             }
         }
+        
     }
 }
