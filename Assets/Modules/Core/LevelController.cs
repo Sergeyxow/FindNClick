@@ -3,6 +3,7 @@ using Modules.Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Plugins.DataSave;
+using Zenject;
 
 namespace Modules.Core
 {
@@ -14,9 +15,13 @@ namespace Modules.Core
         private LevelInitializer _levelInitializer;
         private LevelStateTracker _levelStateTracker;
 
-        private void Construct(SessionData sessionData)
+        
+        [Inject]
+        private void Construct(SessionData sessionData, LevelInitializer levelInitializer, LevelStateTracker levelStateTracker)
         {
             _sessionData = sessionData;
+            _levelInitializer = levelInitializer;
+            _levelStateTracker = levelStateTracker;
         }
         
         private void Awake()

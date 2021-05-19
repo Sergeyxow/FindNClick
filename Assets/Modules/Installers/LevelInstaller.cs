@@ -17,6 +17,9 @@ namespace Modules.Installers
             Container.Bind<LevelController>().FromInstance(_levelController).AsSingle();
             
             Container.BindInterfacesAndSelfTo<LevelTimer>().AsSingle();
+
+            Container.Bind<LevelInitializer>().AsSingle();
+            Container.Bind<LevelStateTracker>().AsSingle();
         }
     }
 }
