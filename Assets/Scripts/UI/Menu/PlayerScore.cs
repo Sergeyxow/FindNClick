@@ -8,10 +8,10 @@ namespace DefaultNamespace.UI
     {
         [SerializeField] private TextMeshProUGUI _playerTextBox, _scoreTextBox;
 
-        public void Init(UserStatistics userStatistics)
+        public void Init(UserScore userScore)
         {
-            _playerTextBox.text = userStatistics.name;
-            _scoreTextBox.text = userStatistics.time.ToString();
+            _playerTextBox.text = userScore.name;
+            _scoreTextBox.text = userScore.time.ToString();
         }
     }
 }

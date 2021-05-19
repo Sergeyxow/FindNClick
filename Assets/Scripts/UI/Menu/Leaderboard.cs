@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using DefaultNamespace.Common;
 using UnityEngine;
 
@@ -10,18 +11,18 @@ namespace DefaultNamespace.UI
         [SerializeField] private PlayerScore _playerScorePrefab;
         [SerializeField] private int _maxFields = 7;
 
-        public void UpdateView(UserStatistics[] userStatisticsArray)
+        public void UpdateView(List<UserScore> userStatisticsList)
         {
-            userStatisticsArray = userStatisticsArray.OrderBy(x => x.time).ToArray();
+            userStatisticsList = userStatisticsList.OrderBy(x => x.time).ToList();
 
             for (int i = _playerScoresParent.childCount - 1; i >= 0 ; i--)
             {
                 Destroy(_playerScoresParent.GetChild(i).gameObject);
             }
 
-            for (var i = 0; i < Mathf.Min(userStatisticsArray.Length, _maxFields); i++)
+            for (var i = 0; i < Mathf.Min(userStatisticsList.Count, _maxFields); i++)
             {
-                Instantiate(_playerScorePrefab, _playerScoresParent).Init(userStatisticsArray[i]);
+                Instantiate(_playerScorePrefab, _playerScoresParent).Init(userStatisticsList[i]);
             }
         }
     }

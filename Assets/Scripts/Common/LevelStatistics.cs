@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DefaultNamespace.Common
 {
@@ -6,6 +7,6 @@ namespace DefaultNamespace.Common
     public class LevelStatistics
     {
         public int stars;
-        public UserStatistics[] leaderboard;
+        public List<UserScore> leaderboard;
     }
 }
