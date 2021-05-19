@@ -15,9 +15,7 @@ namespace Modules.Core
         private LevelData _levelData;
         private SaverBase<PlayerData> _playerDataSaver;
         private SessionData _sessionData;
-
-        private LevelDescriptionCollection _levelDescriptionCollection;
-        private LevelGameplayDataCollection _levelGameplayDataCollection;
+        private  LevelInitializer _levelInitializer;
 
         [Inject]
         private void Construct(SaverBase<PlayerData> playerDataSaver, SessionData sessionData, LevelData levelData,
@@ -27,8 +25,6 @@ namespace Modules.Core
             _playerDataSaver = playerDataSaver;
             _sessionData = sessionData;
             _levelData = levelData;
-            _levelDescriptionCollection = levelDescriptionCollection;
-            _levelGameplayDataCollection = levelGameplayDataCollection;
         }
         
         private void Awake()
@@ -39,7 +35,7 @@ namespace Modules.Core
                 return;
             }
 
-            InitializeLevel();
+            _levelInitializer.InitializeLevel();
         }
 
         private void Start()
@@ -50,22 +46,6 @@ namespace Modules.Core
         private void OnDestroy()
         {
             _levelData.EnemyActor.HealthComponent.HealthIsOut.RemoveListener(OnWin);
-        }
-
-        private void InitializeLevel()
-        {
-            if (_levelDescriptionCollection.TryGetDescription(_sessionData.LevelId, out LevelDescription levelDescription))
-            {
-                if (_levelGameplayDataCollection.TryGetStatistics(_sessionData.LevelId,
-                    out LevelGameplayData levelGameplayData))
-                {
-                    _levelData.BackgroundImage.sprite = levelGameplayData.Background;
-                    _levelData.EnemyActor.Init(levelDescription.AvatarSprite, levelGameplayData.ClicksToKill);
-                    return;
-                }
-            }
-            
-            Debug.LogError("Level initialization went wrong!");
         }
 
         public void OnWin()
