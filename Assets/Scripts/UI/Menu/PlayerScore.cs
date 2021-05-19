@@ -11,7 +11,7 @@ namespace DefaultNamespace.UI
         public void Init(UserScore userScore)
         {
             _playerTextBox.text = userScore.name;
-            _scoreTextBox.text = userScore.time.ToString();
+            _scoreTextBox.text = userScore.time.ToString("0.0");
         }
     }
 }
