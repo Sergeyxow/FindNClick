@@ -1,5 +1,8 @@
 ﻿using System;
+using DefaultNamespace;
+using DefaultNamespace.Common;
 using Modules.Data;
+using Plugins.DataSave;
 using Zenject;
 
 namespace Modules.Core
@@ -9,10 +12,20 @@ namespace Modules.Core
         public event Action<bool> LevelFinished;
         
         private LevelData _levelData;
+        private SaverBase<LevelStatisticsArray> _levelStatisticsSaver;
+        private LevelTimer _levelTimer;
+        private SessionData _sessionData;
         
+        private UserScore _playerFakeScore = new UserScore {id = 0000, name = "You", time = 0f};
+
         [Inject]
-        private void Construct(LevelData levelData)
+        private void Construct(
+            LevelData levelData, SaverBase<LevelStatisticsArray> levelStatisticsSaver, 
+            LevelTimer levelTimer, SessionData sessionData)
         {
+            _sessionData = sessionData;
+            _levelTimer = levelTimer;
+            _levelStatisticsSaver = levelStatisticsSaver;
             _levelData = levelData;
         }
 
@@ -28,6 +41,12 @@ namespace Modules.Core
         
         public void OnWin()
         {
+            UserScore score = _playerFakeScore;
+            score.time = _levelTimer.Time;
+            
+            _levelStatisticsSaver.Instance.UpdateUserScore(_sessionData.LevelId, score);
+            _levelStatisticsSaver.Save();
+            
             LevelFinished?.Invoke(true);
         }
         

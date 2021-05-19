@@ -25,5 +25,20 @@ namespace DefaultNamespace
             outLevelStatistics = null;
             return false;
         }
+
+        public void UpdateUserScore(int levelId, UserScore userScore)
+        {
+            LevelStatistics levelStatistics = stats[levelId];
+            
+            for (var i = 0; i < stats[levelId].leaderboard.Count; i++)
+            {
+                if (levelStatistics.leaderboard[i].id == userScore.id)
+                {
+                    levelStatistics.leaderboard[i] = userScore;
+                }
+            }
+            
+            levelStatistics.leaderboard.Add(userScore);
+        }
     }
 }

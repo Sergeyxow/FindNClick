@@ -4,7 +4,7 @@ using UnityEngine;
 namespace DefaultNamespace.Common
 {
     [Serializable]
-    public class UserScore
+    public struct UserScore
     {
         public int id;
         public string name;

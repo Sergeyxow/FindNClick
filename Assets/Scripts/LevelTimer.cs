@@ -9,12 +9,14 @@ namespace DefaultNamespace
         public Action<float> TimeUpdated;
         public Action<int> SecondsUpdated;
 
+        public float Time => _time;
         private float _time;
+        public int Seconds => _seconds;
         private int _seconds;
         
         public void Tick()
         {
-            _time += Time.deltaTime;
+            _time += UnityEngine.Time.deltaTime;
 
             int seconds = Mathf.FloorToInt(_time);
             
@@ -26,5 +28,6 @@ namespace DefaultNamespace
                 
             TimeUpdated?.Invoke(_time);
         }
+
     }
 }
