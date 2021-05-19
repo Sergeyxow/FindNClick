@@ -1,4 +1,5 @@
-﻿using Modules.Core;
+﻿using DefaultNamespace;
+using Modules.Core;
 using Modules.Data;
 using UnityEngine;
 using Zenject;
@@ -14,6 +15,8 @@ namespace Modules.Installers
         {
             Container.Bind<LevelData>().FromInstance(_levelData).AsSingle();
             Container.Bind<LevelController>().FromInstance(_levelController).AsSingle();
+            
+            Container.BindInterfacesAndSelfTo<LevelTimer>().AsSingle();
         }
     }
 }
