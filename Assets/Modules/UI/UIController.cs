@@ -1,5 +1,7 @@
 ﻿using System;
+using Modules.Core;
 using UnityEngine;
+using Zenject;
 
 namespace Modules.UI
 {
@@ -8,13 +10,40 @@ namespace Modules.UI
         public Canvas Canvas;
         public Screen GameHUD;
         public Screen WinScreen;
-        public Screen LoseScreen;
+        
+        private LevelController _levelController;
 
-        public void HideAll()
+        [Inject]
+        private void Construct(LevelController levelController)
+        {
+            _levelController = levelController;
+        }
+
+        private void Start()
+        {
+            GameHUD.Show();
+        }
+
+        private void OnEnable()
+        {
+            _levelController.LevelFinished += OnLevelFinished;
+        }
+
+        private void OnDisable()
+        {
+            _levelController.LevelFinished -= OnLevelFinished;
+        }
+
+        private void OnLevelFinished(bool win)
+        {
+            HideAll();
+            WinScreen.Show();
+        }
+
+        private void HideAll()
         {
             GameHUD.Hide();
             WinScreen.Hide();
-            LoseScreen.Hide();
         }
     }
 }

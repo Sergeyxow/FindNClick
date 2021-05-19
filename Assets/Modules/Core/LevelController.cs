@@ -10,7 +10,7 @@ namespace Modules.Core
 {
     public class LevelController : MonoBehaviour
     {
-        public event Action<bool> OnLevelFinished;
+        public event Action<bool> LevelFinished;
         
         private LevelData _levelData;
         private SaverBase<PlayerData> _playerDataSaver;
@@ -62,12 +62,12 @@ namespace Modules.Core
         {
             _playerDataSaver.Instance.LevelIdx++;
             _playerDataSaver.Save();
-            OnLevelFinished?.Invoke(true);
+            LevelFinished?.Invoke(true);
         }
         
         public void OnLose()
         {
-            OnLevelFinished?.Invoke(false);
+            LevelFinished?.Invoke(false);
         }
         
     }
