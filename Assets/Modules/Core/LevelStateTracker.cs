@@ -21,6 +21,11 @@ namespace Modules.Core
             _levelData.EnemyActor.HealthComponent.HealthIsOut.AddListener(OnWin);
         }
         
+        ~LevelStateTracker()
+        {
+            _levelData.EnemyActor.HealthComponent.HealthIsOut.RemoveListener(OnWin);
+        }
+        
         public void OnWin()
         {
             LevelFinished?.Invoke(true);
