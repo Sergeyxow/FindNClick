@@ -12,7 +12,6 @@ namespace Modules.Installers
         [SerializeField] private LevelCollection _levelCollection;
         
         [SerializeField] private LevelDescriptionCollection _levelDescriptionCollection;
-        [SerializeField] private LevelStatisticsCollection _levelStatisticsCollection;
         [SerializeField] private LevelGameplayDataCollection _levelGameplayDataCollection;
 
         public override void InstallBindings()
@@ -21,11 +20,11 @@ namespace Modules.Installers
             Container.Bind<LevelCollection>().FromInstance(_levelCollection).AsSingle();
             
             Container.Bind<LevelDescriptionCollection>().FromInstance(_levelDescriptionCollection).AsSingle();
-            Container.Bind<LevelStatisticsCollection>().FromInstance(_levelStatisticsCollection).AsSingle();
             Container.Bind<LevelGameplayDataCollection>().FromInstance(_levelGameplayDataCollection).AsSingle();
             
             Container.Bind<SessionData>().To<SessionData>().AsSingle();
             Container.Bind<SaverBase<PlayerData>>().To<JSONSaver<PlayerData>>().AsSingle();
+            Container.Bind<SaverBase<LevelStatisticsArray>>().To<JSONSaver<LevelStatisticsArray>>().AsSingle();
         }
     }
 }
