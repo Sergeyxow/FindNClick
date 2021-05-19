@@ -11,12 +11,12 @@ namespace Modules.UI
         public Screen GameHUD;
         public Screen WinScreen;
         
-        private LevelController _levelController;
+        private LevelStateTracker _levelStateTracker;
 
         [Inject]
-        private void Construct(LevelController levelController)
+        private void Construct(LevelStateTracker levelController)
         {
-            _levelController = levelController;
+            _levelStateTracker = levelController;
         }
 
         private void Start()
@@ -26,12 +26,12 @@ namespace Modules.UI
 
         private void OnEnable()
         {
-            _levelController.LevelFinished += OnLevelFinished;
+            _levelStateTracker.LevelFinished += OnLevelFinished;
         }
 
         private void OnDisable()
         {
-            _levelController.LevelFinished -= OnLevelFinished;
+            _levelStateTracker.LevelFinished -= OnLevelFinished;
         }
 
         private void OnLevelFinished(bool win)
