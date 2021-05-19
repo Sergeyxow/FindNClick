@@ -42,6 +42,16 @@ namespace Modules.Core
             InitializeLevel();
         }
 
+        private void Start()
+        {
+            _levelData.EnemyActor.HealthComponent.HealthIsOut.AddListener(OnWin);
+        }
+
+        private void OnDestroy()
+        {
+            _levelData.EnemyActor.HealthComponent.HealthIsOut.RemoveListener(OnWin);
+        }
+
         private void InitializeLevel()
         {
             if (_levelDescriptionCollection.TryGetDescription(_sessionData.LevelId, out LevelDescription levelDescription))
@@ -60,14 +70,7 @@ namespace Modules.Core
 
         public void OnWin()
         {
-            _playerDataSaver.Instance.LevelIdx++;
-            _playerDataSaver.Save();
             LevelFinished?.Invoke(true);
-        }
-        
-        public void OnLose()
-        {
-            LevelFinished?.Invoke(false);
         }
         
     }
