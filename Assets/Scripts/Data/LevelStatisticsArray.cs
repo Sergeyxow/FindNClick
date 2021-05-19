@@ -35,6 +35,7 @@ namespace DefaultNamespace
                 if (levelStatistics.leaderboard[i].id == userScore.id)
                 {
                     levelStatistics.leaderboard[i] = userScore;
+                    return;
                 }
             }
             
