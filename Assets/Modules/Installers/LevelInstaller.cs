@@ -20,6 +20,7 @@ namespace Modules.Installers
 
             Container.Bind<LevelInitializer>().AsSingle();
             Container.Bind<LevelStateTracker>().AsSingle();
+            Container.Bind<LevelEvents>().AsSingle();
         }
     }
 }
