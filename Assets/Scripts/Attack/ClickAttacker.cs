@@ -7,7 +7,7 @@ namespace DefaultNamespace
     public class ClickAttacker : MonoBehaviour
     {
         [SerializeField] private float _damage = 1f;
-        public AttackBehavior AttackBehavior;
+        public AttackBehavior AttackBehavior = new SingleHitAttackBehavior();
         
         private Camera _camera;
 

@@ -9,6 +9,7 @@ namespace DefaultNamespace.Bonuses
         public override void OnCollected()
         {
             _levelEvents.FreezeBonusCollected?.Invoke(this);
+            Destroy(gameObject);
         }
     }
 }

@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 278652600}
   - component: {fileID: 278652599}
+  - component: {fileID: 278652601}
   m_Layer: 0
   m_Name: ClickDamager
   m_TagString: Untagged
@@ -167,6 +168,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &278652601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278652598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff8fd3c05ba4d6a824c4513782329c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attacker: {fileID: 278652599}
 --- !u!1 &366957884
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,33 +330,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &679913276 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5069073384117384305, guid: 8f64a5bd8cef140408fa4d39485b1efa,
-    type: 3}
-  m_PrefabInstance: {fileID: 5069073384779977549}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &679913277 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5069073384117384304, guid: 8f64a5bd8cef140408fa4d39485b1efa,
-    type: 3}
-  m_PrefabInstance: {fileID: 5069073384779977549}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &679913278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 679913276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cb178ac632747fdbc98188d8be5a211, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bounds: {x: 5, y: 8}
-  _moving: 0
-  _target: {fileID: 679913277}
 --- !u!1 &687284236
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,41 +765,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 5069073384117384306, guid: 8f64a5bd8cef140408fa4d39485b1efa,
-        type: 3}
-      propertyPath: Damaged.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5069073384117384306, guid: 8f64a5bd8cef140408fa4d39485b1efa,
-        type: 3}
-      propertyPath: Damaged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5069073384117384306, guid: 8f64a5bd8cef140408fa4d39485b1efa,
-        type: 3}
-      propertyPath: Damaged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 679913278}
-    - target: {fileID: 5069073384117384306, guid: 8f64a5bd8cef140408fa4d39485b1efa,
-        type: 3}
-      propertyPath: Damaged.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5069073384117384306, guid: 8f64a5bd8cef140408fa4d39485b1efa,
-        type: 3}
-      propertyPath: Damaged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: Jump
-      objectReference: {fileID: 0}
-    - target: {fileID: 5069073384117384306, guid: 8f64a5bd8cef140408fa4d39485b1efa,
-        type: 3}
-      propertyPath: Damaged.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: DefaultNamespace.JumpInsideAreaComponent, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5069073384117384306, guid: 8f64a5bd8cef140408fa4d39485b1efa,
-        type: 3}
-      propertyPath: Damaged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f64a5bd8cef140408fa4d39485b1efa, type: 3}
 --- !u!114 &5069073384779977550 stripped
@@ -821,7 +773,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 5069073384779977549}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 679913276}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0d5ca89af5b4df981552f75089d12cc, type: 3}

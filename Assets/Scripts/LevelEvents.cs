@@ -6,7 +6,7 @@ namespace DefaultNamespace
 {
     public class LevelEvents
     {
-        public Action<DoubleClickBonus> DoubleAttackBonusCollected;
+        public Action<DoubleAttackBonus> DoubleAttackBonusCollected;
         public Action<FreezeBonus> FreezeBonusCollected;
         public Action<GrowthBonus> GrowthBonusCollected;
     }

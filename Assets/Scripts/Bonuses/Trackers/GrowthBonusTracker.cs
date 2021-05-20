@@ -33,7 +33,7 @@ namespace DefaultNamespace.Bonuses.Trackers
             Sequence sequence = DOTween.Sequence();
             sequence.Append(_target.DOScale(bonus.ScaleMultiplier, 0.25f));
             sequence.AppendInterval(bonus.Duration / 2f);
-            sequence.SetLoops(1, LoopType.Yoyo);
+            sequence.SetLoops(2, LoopType.Yoyo);
             sequence.Play();
         }
     }

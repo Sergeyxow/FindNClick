@@ -30,7 +30,7 @@ namespace DefaultNamespace.Bonuses.Trackers
             _levelEvents.DoubleAttackBonusCollected -= OnDoubleAttackBonusCollected;
         }
 
-        private void OnDoubleAttackBonusCollected(DoubleClickBonus bonus)
+        private void OnDoubleAttackBonusCollected(DoubleAttackBonus bonus)
         {
             _attacker.AttackBehavior = _doubleHitAttackBehavior;
             this.DOKill();

@@ -11,6 +11,7 @@ namespace DefaultNamespace.Bonuses.Trackers
         public override void OnCollected()
         {
             _levelEvents.GrowthBonusCollected?.Invoke(this);
+            Destroy(gameObject);
         }
     }
 }
