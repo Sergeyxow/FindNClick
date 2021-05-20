@@ -7,9 +7,9 @@ namespace DefaultNamespace
     public class ClickAttacker : MonoBehaviour
     {
         [SerializeField] private float _damage = 1f;
+        public AttackBehavior AttackBehavior;
         
         private Camera _camera;
-        private AttackBehavior _attackBehavior;
 
         private void Start()
         {
@@ -27,7 +27,7 @@ namespace DefaultNamespace
                 {
                     if (hit.collider.gameObject.TryGetComponent(out DamageableComponent damageable))
                     {
-                        _attackBehavior.Attack(_damage, damageable);
+                        AttackBehavior.Attack(_damage, damageable);
                     }
                 }
             }

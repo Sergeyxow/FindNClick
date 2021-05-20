@@ -6,8 +6,9 @@ namespace DefaultNamespace
 {
     public class JumpInsideAreaComponent : MonoBehaviour
     {
+        [SerializeField] public bool CanMove = true;
+        [SerializeField] private bool _moveBoundsWithParent = false;
         [SerializeField] private Vector2 _bounds;
-        [SerializeField] private bool _moving = false;
         [SerializeField] private Transform _target;
 
         private Vector2 _centerAtStart;
@@ -21,7 +22,10 @@ namespace DefaultNamespace
 
         public void Jump()
         {
-            Vector2 center =  _moving ? (Vector2) transform.position : _centerAtStart;
+            if (!CanMove)
+                return;
+            
+            Vector2 center =  _moveBoundsWithParent ? (Vector2) transform.position : _centerAtStart;
             _target.position = GetRandomPoint(center, _bounds);
         }
 
@@ -37,7 +41,7 @@ namespace DefaultNamespace
         {
             Gizmos.color = new Color(0.88f, 0f, 1f);
             Vector3 center;
-            if (_started && !_moving)
+            if (_started && !_moveBoundsWithParent)
             {
                 center = _centerAtStart;
             }
