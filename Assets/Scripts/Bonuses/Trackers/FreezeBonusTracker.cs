@@ -31,7 +31,7 @@ namespace DefaultNamespace.Bonuses.Trackers
             this.DOKill();
             DOTween.Sequence().AppendInterval(bonus.Duration).OnComplete(() =>
             {
-                _jumpInsideArea.CanMove = false;
+                _jumpInsideArea.CanMove = true;
             });
         }
     }
