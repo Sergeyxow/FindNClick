@@ -6,5 +6,13 @@ namespace Modules.Data
     public class PlayerData
     {
         public int LevelIdx;
+        public bool SoundEnabled;
+        public bool MusicEnabled;
+
+        public PlayerData()
+        {
+            SoundEnabled = true;
+            MusicEnabled = true;
+        }
     }
 }
